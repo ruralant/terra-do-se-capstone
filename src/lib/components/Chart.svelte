@@ -18,7 +18,7 @@
 
 	ChartJS.register(Title, Tooltip, Legend, LineElement, LinearScale, PointElement, CategoryScale);
 
-	const labels = energy.map((item) => format(parseISO(item.date), 'dd/MM/yy'));
+	const labels = energy.map((item) => format(parseISO(item.date), 'dd/MM/yy')).reverse();
 
 	const data = {
 		labels: labels,
@@ -26,25 +26,25 @@
 			{
 				label: 'Energy Consumption (kWh)',
 				yAxisID: 'energy',
-				data: energy.map((item) => item.consumption),
+				data: energy.map((item) => item.consumption).reverse(),
 				fill: false,
-				borderColor: 'yellow',
+				borderColor: '#749BC2',
 				tension: 0.1
 			},
 			{
 				label: 'Grid Intensity (gCO2eq/kWh)',
 				yAxisID: 'intensity',
-				data: intensity.map((item) => item.intensity),
+				data: intensity.map((item) => item.intensity).reverse(),
 				fill: false,
-				borderColor: 'red',
+				borderColor: '#E57C23',
 				tension: 0.1
 			},
 			{
 				label: 'Unit Rate (p/kWh)',
 				yAxisID: 'prices',
-				data: prices.map((item) => item.unitRate),
+				data: prices.map((item) => item.unitRate).reverse(),
 				fill: false,
-				borderColor: 'green',
+				borderColor: '#495E57',
 				tension: 0.1
 			}
 		]
